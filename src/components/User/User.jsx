@@ -10,10 +10,8 @@ import passwordIcon from "../../assets/icons/password.svg";
 
 function User() {
     const [userData, setUserData] = useState(null);
-    const [iconInfo, setIconInfo] = useState({
-      label: "My name is",
-      value: "",
-    });
+    const [iconInfo, setIconInfo] = useState({ label: "My name is", value: "" });
+    const [hoverIcon, setHoverIcon] = useState(null);
 
     useEffect(() => {
         axios
@@ -40,16 +38,9 @@ function User() {
         return <div className="text-center mt-10">Ah Oh...something aint right</div>;
       }
 
-      // const handleClickonIcon = (label, value) => {
-      //   setIconInfo({ label, value });
-      // };
-    
-      // const setDefault = () => {
-      //   setIconInfo({ label: "My name is", value: userData.name }); // Reset to default
-      // };
-
-      const handleIconClick = (label, value) => {
+      const handleIconClick = (label, value, icon) => {
         setIconInfo({ label, value });
+        setHoverIcon(icon);
       };
 
     return(
@@ -79,50 +70,50 @@ function User() {
             <img
               src={userIcon}
               alt="User"
-              className="ww-10 h-10 cursor-pointer hover:scale-110 hover:brightness-0 hover:fill-[#749c50] transition-transform transition-filter duration-300"
-              // onMouseEnter={() => handleClickonIcon("My name is ", userData.name)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My name is", userData.name)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "user" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My name is", userData.name)}
             />
             <img
               src={emailIcon}
               alt="Email"
-              className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 hover:fill-[#749c50] transition-transform transition-filter duration-300"
-              // onMouseEnter={() => handleClickonIcon("My email is", userData.email)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My email is", userData.email)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "email" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My email is", userData.email)}
             />
             <img
               src={calendarIcon}
               alt="Calendar"
-              className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 hover:fill-[#749c50] transition-transform transition-filter duration-300"
-              // onMouseEnter={() => handleClickonIcon("My birthday is", userData.birthday)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My birthday is", userData.birthday)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "calendar" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My birthday is", userData.birthday)}
             />
             <img
               src={mapIcon}
               alt="Address"
-              className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 transition-transform transition-filter duration-300"
-              // onMouseEnter={() => handleClickonIcon("My address is", userData.location)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My address is", userData.location)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "map" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My address is", userData.location)}
             />
             <img
               src={phoneIcon}
               alt="Phone"
-              className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 transition-transform transition-filter duration-300"
-              // onMouseEnter={() => handleClickonIcon("My phone number is", userData.phone)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My phone number is", userData.phone)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "phone" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My phone number is", userData.phone)}
             />
               <img
               src={passwordIcon}
               alt="Password"
-              className="w-10 h-10 cursor-pointer hover:brightness-125 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ease-in-out"
-              // onMouseEnter={() => handleClickonIcon("My password is", userData.password)}
-              // onMouseLeave={setDefault}
-              onClick={() => handleIconClick("My password is", userData.password)}
+              className={`w-10 h-10 cursor-pointer hover:scale-150 transition-transform duration-300 ${
+                hoverIcon === "password" ? "filter-[invert(40%) sepia(60%) saturate(300%) hue-rotate(80deg)]" : "text-gray-400"
+              }`}
+              onMouseEnter={() => handleIconClick("My password is", userData.password)}
             />
 
           </div>
