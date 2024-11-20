@@ -40,11 +40,11 @@ function User() {
         return <div className="text-center mt-10">Ah Oh...something aint right</div>;
       }
 
-      const handleMouseEnter = (label, value) => {
+      const handleClickonIcon = (label, value) => {
         setIconInfo({ label, value });
       };
     
-      const handleMouseLeave = () => {
+      const setDefault = () => {
         setIconInfo({ label: "My name is", value: userData.name }); // Reset to default
       };
 
@@ -76,53 +76,53 @@ function User() {
               src={userIcon}
               alt="User"
               className="ww-10 h-10 cursor-pointer hover:scale-110 hover:brightness-0 hover:fill-[#749c50] transition-transform transition-filter duration-300"
-              onMouseEnter={() => handleMouseEnter("My name is ", userData.name)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => handleClickonIcon("My name is ", userData.name)}
+              onMouseLeave={setDefault}
             />
             <img
               src={emailIcon}
               alt="Email"
               className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 hover:fill-[#749c50] transition-transform transition-filter duration-300"
               onMouseEnter={() =>
-                handleMouseEnter("My email is", userData.email)
+                handleClickonIcon("My email is", userData.email)
               }
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={setDefault}
             />
             <img
               src={calendarIcon}
               alt="Calendar"
               className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 hover:fill-[#749c50] transition-transform transition-filter duration-300"
               onMouseEnter={() =>
-                handleMouseEnter("My birthday is", userData.birthday)
+                handleClickonIcon("My birthday is", userData.birthday)
               }
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={setDefault}
             />
             <img
               src={mapIcon}
               alt="Address"
               className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 transition-transform transition-filter duration-300"
               onMouseEnter={() =>
-                handleMouseEnter("My address is", userData.location)
+                handleClickonIcon("My address is", userData.location)
               }
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={setDefault}
             />
             <img
               src={phoneIcon}
               alt="Phone"
               className="w-10 h-10 cursor-pointer hover:scale-110 hover:brightness-125 transition-transform transition-filter duration-300"
               onMouseEnter={() =>
-                handleMouseEnter("My phone number is", userData.phone)
+                handleClickonIcon("My phone number is", userData.phone)
               }
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={setDefault}
             />
               <img
               src={passwordIcon}
               alt="Password"
               className="w-10 h-10 cursor-pointer hover:brightness-125 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ease-in-out"
               onMouseEnter={() =>
-                handleMouseEnter("My password is", userData.password)
+                handleClickonIcon("My password is", userData.password)
               }
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={setDefault}
             />
 
           </div>
